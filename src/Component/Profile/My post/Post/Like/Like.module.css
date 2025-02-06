@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    font-size: 34px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 9px;
+    margin-left:1px;
+    color: #c10b0b;
+}

@@ -1,0 +1,54 @@
+.profile img{
+    width: 880px;
+    height: 250px;
+    border-radius: 12px
+
+}
+.avatar img{
+
+
+    margin:-60px 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.27)
+}
+.avatar {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 700;
+
+}
+
+.profile{
+    color: rgba(0, 0, 0, 0.8);
+}
+.red{
+    position: relative;
+    left:590px;
+    top:-20px;
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 89, 255, 0.7);
+    border: 0;
+    border-radius: 8px;
+    padding: 7px 16px 8px;
+    font-weight:700;
+}
+.eshe{
+    position: relative;
+    left:800px;
+    top:-50px;
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 89, 255, 0.7);
+    border: 0;
+    border-radius: 8px;
+    padding: 7px 16px 8px;
+    font-weight:700;
+}

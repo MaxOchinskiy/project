@@ -1,0 +1,30 @@
+.header{
+    grid-area:h ;
+    background: rgba(255, 255, 255, 0.74);
+    position: relative;
+    top:-9px;
+
+
+}
+.header img{
+    width: 30px;
+    margin: 20px 430px;
+}
+.log{
+    margin: -55px 465px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 800;
+    cursor: pointer;
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+    font-size: 20px;
+
+}
+.loginBlock{
+    width: 30px;
+    margin: 20px 1730px;
+}
+.loginBlock a{
+    color: black;
+    outline: none;
+    text-decoration: none;
+}

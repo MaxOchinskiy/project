@@ -1,0 +1,45 @@
+.log{
+    margin:60px 20px;
+    color: rgba(0, 0, 0, 0.8);
+
+}
+.post{
+    height: 120px;
+    color: rgba(0, 0, 0, 0.8);
+}
+.posts{
+    margin:-20px 10px;
+    color: rgba(0, 0, 0, 0.8);
+}
+.mypost{
+    position: relative;
+    left:0px;
+    top:7px;
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 89, 255, 0.7);
+    border: 0;
+    border-radius: 8px;
+    padding: 7px 16px 8px;
+    font-weight:700;
+}
+.text{
+    resize: none;
+    position: relative;
+    left:0px;
+    top:5px;
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.8);
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 19px 10px;
+    font-weight:700;
+    width: 825px;
+}

@@ -1,0 +1,91 @@
+.userPhoto{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin:10px;
+}
+.unfollow{
+    padding: 7px 16px 8px;
+    margin: 0 auto;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+    text-decoration: none;
+    background-color: #5181b8;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    position: relative;
+    left:110px;
+    top:-30px;
+
+
+
+
+
+}
+.follow{
+    padding: 7px 16px 8px;
+    margin: 0 auto;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+    background: none;
+    background-color: #5181b8;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    position: relative;
+    left:110px;
+    top:-30px;
+
+}
+.getUsers{
+
+    padding: 7px 16px 8px;
+    margin: 20px 400px ;
+    font-size: 12.5px;
+    cursor: pointer;
+    outline: none;
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+    text-decoration: none;
+    background: none;
+    background-color: #5181b8;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+
+}
+.loc{
+    position: relative;
+    left:110px;
+    top:-120px;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+}
+.selectedPage{
+    font-weight:bold ;
+    cursor: pointer;
+    padding: 7px 16px 8px;
+    font-size: 12.5px;
+    cursor: pointer;
+    outline: none;
+    font-family: Open Sans, Helvetica Neue, sans-serif;
+    text-decoration: none;
+    background: none;
+    background-color: #5181b8;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+
+}
+.prelo{
+    width: 20%;
+    margin: auto;
+
+
+}
+
