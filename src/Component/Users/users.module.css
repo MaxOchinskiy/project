@@ -67,6 +67,9 @@
     font-family: Open Sans, Helvetica Neue, sans-serif;
 }
 .selectedPage{
+    position: relative;
+    left:410px;
+    margin: 2px;
     font-weight:bold ;
     cursor: pointer;
     padding: 7px 16px 8px;

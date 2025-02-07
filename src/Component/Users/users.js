@@ -19,7 +19,7 @@ let Users = (props) => {
             {slicedPages.map(p => {
                 return <button  onClick={(e) => {
                     props.onPageChanged(p);
-                }} className={props.currentPage === p && styles.selectedPage}>{p}</button>
+                }} className={styles.selectedPage}>{p}</button>
             })}
         </div>
         {props.users.map(u => <div key={u.id}>
