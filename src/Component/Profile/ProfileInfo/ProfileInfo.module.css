@@ -52,3 +52,7 @@
     padding: 7px 16px 8px;
     font-weight:700;
 }
+.status{
+    position: relative;
+    left:300px;
+}
