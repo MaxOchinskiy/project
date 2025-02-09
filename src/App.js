@@ -21,28 +21,16 @@ const App = () => {
                     <Routes>
                         <Route path='dialogs/*'
                                element={<DialogsContainer/>}/>
-                    </Routes>
-                    <Routes>
                         <Route path='/profile/:userId?'
                                element={<ProfileContainer/>}/>
-                    </Routes>
-                    <Routes>
                         <Route path="/music"
                                element={<Music/>}/>
-                    </Routes>
-                    <Routes>
                         <Route path="/news"
                                element={<News/>}/>
-                    </Routes>
-                    <Routes>
                         <Route path="/settings"
                                element={<Settings/>}/>
-                    </Routes>
-                    <Routes>
                         <Route path="/users"
                                element={<UsersContainer/>}/>
-                    </Routes>
-                    <Routes>
                         <Route path="/login"
                                element={<LoginPage/>}/>
                     </Routes>

@@ -48,5 +48,5 @@ export default compose(
         setCurrentPage,
         toggleFollowingProgress,
         getUsers
-    })(UsersContainer))
+    }))(UsersContainer)
 
