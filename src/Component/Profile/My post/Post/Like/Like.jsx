@@ -1,26 +1,34 @@
-import React, {useState} from "react";
-import s from './Like.module.css'
-
-
+import React, { useState } from "react";
+import s from './Like.module.css';
 
 const Like = (props) => {
-    console.log(props.message);
-    const[count,setCount]=useState(0);
-    const onclick =()=>{
-        setCount(count+1)
-    }
+    // Состояние для количества лайков
+    const [count, setCount] = useState(0);
+    const [liked, setLiked] = useState(false); // Состояние для проверки, был ли лайкнут
 
-    return<div className={s.container}>
-        <div>{count}</div>
-    <button onClick={onclick} className={s.button}>
-         &#10084;
-    </button>
-        {props.message}
+    const onClick = () => {
+        if (!liked) {
+            setCount(count + 1);
+            setLiked(true);  // Лайкнули, блокируем дальнейшее увеличение
+        } else {
+            setCount(count - 1);
+            setLiked(false);  // Убираем лайк
+        }
+    };
 
+    return (
+        <div className={s.container}>
+            <div className={s.count}>{count}</div>
+            <button
+                onClick={onClick}
+                className={`${s.button} ${liked ? s.liked : ""}`} // Динамическое добавление класса для лайкнутого состояния
+            >
+                &#10084;
+            </button>
+            {props.message && <div className={s.message}>{props.message}</div>} {/* Если передано сообщение, то отобразим его */}
+        </div>
+    );
+};
 
-
-</div>}
-
-
-export default Like
+export default Like;
 

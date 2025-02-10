@@ -1,14 +1,36 @@
 .container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.count {
+    font-size: 18px;
+    margin-right: 10px;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .button {
-    font-size: 34px;
-    border: none;
     background: none;
+    border: none;
+    font-size: 30px;
     cursor: pointer;
-    padding: 9px;
-    margin-left:1px;
-    color: #c10b0b;
+    color: rgba(0, 0, 0, 0.7);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    color: red;  /* При наведении на кнопку цвет меняется на красный */
+    transform: scale(1.2); /* Эффект увеличения при наведении */
+}
+
+.liked {
+    color: red; /* Цвет при активном лайке */
+}
+
+.message {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 5px;
 }

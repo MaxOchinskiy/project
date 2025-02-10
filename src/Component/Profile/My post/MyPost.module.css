@@ -1,21 +1,21 @@
-.log{
-    margin:60px 20px;
+.log {
+    margin: 60px 20px;
     color: rgba(0, 0, 0, 0.8);
-
-}
-.post{
-    height: 120px;
-    color: rgba(0, 0, 0, 0.8);
-}
-.posts{
-    margin:-20px 10px;
-    color: rgba(0, 0, 0, 0.8);
-}
-.mypost{
-    position: relative;
-    left:0px;
-    top:7px;
     font-family: Open Sans, Helvetica Neue, sans-serif;
+}
+
+.post {
+    height: 120px;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.posts {
+    margin: -20px 10px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.mypost {
     cursor: pointer;
     outline: none;
     text-decoration: none;
@@ -23,23 +23,52 @@
     color: rgba(0, 89, 255, 0.7);
     border: 0;
     border-radius: 8px;
-    padding: 7px 16px 8px;
-    font-weight:700;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.text{
+
+.mypost:hover {
+    background-color: rgba(0, 89, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.text {
     resize: none;
-    position: relative;
-    left:0px;
-    top:5px;
-    font-family: Open Sans, Helvetica Neue, sans-serif;
-    cursor: pointer;
-    outline: none;
-    text-decoration: none;
     background-color: white;
     color: rgba(0, 0, 0, 0.8);
-    border: 0;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 10px 19px 10px;
-    font-weight:700;
-    width: 825px;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    width: 100%;
+    max-width: 825px;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.text:focus {
+    border-color: rgba(0, 89, 255, 0.7);
+}
+
+.text::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea {
+    box-sizing: border-box;
 }
