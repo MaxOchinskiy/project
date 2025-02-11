@@ -113,7 +113,34 @@
     margin-top: 20px;
 }
 
-.prelo {
-    width: 20%;
-    margin: auto;
+/* Стили для контейнера предзагрузчика */
+.preloaderContainer {
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center;     /* Центрируем по вертикали */
+    height: 100vh;           /* Занимает всю высоту экрана */
+    background-color: rgba(255, 255, 255, 0.8); /* Легкий полупрозрачный фон */
+    position: fixed;         /* Фиксируем предзагрузчик на экране */
+    top: 0;
+    left: 0;
+    width: 100%;             /* Ширина экрана */
+    z-index: 9999;           /* Чтобы предзагрузчик был поверх всего */
 }
+
+/* Стили для изображения предзагрузчика */
+.preloader {
+    width: 100px; /* Ширина изображения предзагрузчика */
+    height: 100px; /* Высота изображения */
+    animation: rotate 1.5s linear infinite; /* Добавим вращение для эффекта */
+}
+
+/* Добавляем анимацию для вращения */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

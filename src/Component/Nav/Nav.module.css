@@ -1,23 +1,34 @@
-.nav{
-    grid-area:n;
-    background:none;
+.nav {
+    grid-area: n;
+    background: none;
     border-radius: 12px;
-    height: 1080px;
-    margin-left:420px;
-    padding: 20px;
+    min-height: 100vh; /* Вместо фиксированной высоты используем минимальную высоту */
+    margin-left: 420px;
+    padding: 0px;
 }
-.item  {
+
+.item {
     color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
     border: none;
     background-color: transparent;
-    height: 50px;
+    height: 30px;
     width: 200px;
 }
-.item a{
+
+.item a {
     text-decoration: none;
+    color: inherit; /* Наследует цвет от родительского элемента */
+    display: block; /* Делает ссылку блочным элементом для полной ширины */
+    height: 100%; /* Сделать ссылку полной высоты родительского элемента */
 }
-.item a.active{
-    color: #0066ff;
-    text-decoration: none;
+
+.item .active {
+    color: #0066ff; /* Изменение цвета текста для активной ссылки */
+    font-weight: bold; /* Добавить выделение жирным шрифтом для активного состояния */
+}
+
+.item:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Немного подсветить элемент при наведении */
+    border-radius: 8px; /* Скруглить углы при наведении */
 }

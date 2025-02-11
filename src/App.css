@@ -1,20 +1,37 @@
 .app-wrapper {
   display: grid;
-  grid-template-columns: 2fr 10fr;
-  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;  /* 2:10 пропорции для столбцов */
+  grid-template-rows: 60px 1fr;  /* 60px для шапки, остальное — для контента */
   grid-gap: 2px;
   grid-template-areas:
-          "h h"
-  "n c";
+    "h h"
+    "n c";  /* Навигация и контент */
 
   margin: 0 auto;
   background: rgba(0, 0, 0, 0.10);
-
+  height: 100vh;  /* Устанавливаем высоту для всей страницы, чтобы контейнер занимал весь экран */
 }
-.app-wrapper-content{
-  grid-area: c;
 
+.header {
+  grid-area: h; /* Шапка */
+  background: #fff;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
 }
+
+.nav {
+  grid-area: n; /* Навигация */
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+.app-wrapper-content {
+  grid-area: c; /* Контент */
+  padding: 0;
+  overflow-y: auto; /* Если контент будет длинным, можно прокручивать */
+}
+
+
 
 
 

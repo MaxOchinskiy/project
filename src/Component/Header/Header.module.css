@@ -7,11 +7,12 @@
 
 }
 .header img{
-    width: 30px;
-    margin: 20px 430px;
+    width: 24px;
+    height: 24px;
+    margin: 50px 390px;
 }
 .log{
-    margin: -55px 465px;
+    margin: -55px -392px;
     color: rgba(0, 0, 0, 0.8);
     font-weight: 800;
     cursor: pointer;
@@ -27,4 +28,40 @@
     color: black;
     outline: none;
     text-decoration: none;
+}.header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 10px 20px;
+     background-color: #fff;
+     border-bottom: 1px solid #ddd;
+ }
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.log {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.loginBlock {
+    font-size: 16px;
+}
+
+.loginLink {
+    color: #0066ff;
+    text-decoration: none;
+}
+
+.loginLink:hover {
+    text-decoration: underline;
+}
+
+.login {
+    color: #333;
 }
