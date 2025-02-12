@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 2fr 10fr;  /* 2:10 пропорции для столбцов */
   grid-template-rows: 60px 1fr;  /* 60px для шапки, остальное — для контента */
-  grid-gap: 2px;
+  grid-gap: 0px;
   grid-template-areas:
     "h h"
     "n c";  /* Навигация и контент */
@@ -12,24 +12,11 @@
   height: 100vh;  /* Устанавливаем высоту для всей страницы, чтобы контейнер занимал весь экран */
 }
 
-.header {
-  grid-area: h; /* Шапка */
-  background: #fff;
-  padding: 10px;
-  border-bottom: 2px solid #ddd;
-}
-
-.nav {
-  grid-area: n; /* Навигация */
-  background: #f4f4f4;
-  padding: 20px;
-}
-
 .app-wrapper-content {
   grid-area: c; /* Контент */
-  padding: 0;
   overflow-y: auto; /* Если контент будет длинным, можно прокручивать */
 }
+
 
 
 

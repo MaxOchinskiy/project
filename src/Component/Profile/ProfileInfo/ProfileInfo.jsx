@@ -3,6 +3,7 @@ import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import defaultProfilePhoto from '../../../assets/images/users.jpg';
+import dashboardPhoto from '../../../assets/images/maxresdefault.jpg'
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -13,7 +14,7 @@ const ProfileInfo = (props) => {
         <div className={s.profile}>
             <div className={s.dashboard}>
                 <img
-                    src='https://i.ytimg.com/vi/v4BCpE0BkvM/maxresdefault.jpg'
+                    src={dashboardPhoto}
                     alt="Dashboard"
                 />
                 {/* Дашборд */}
@@ -25,9 +26,8 @@ const ProfileInfo = (props) => {
                     alt="Avatar"
                     className={s.profilePhoto}
                 />
-                <ProfileStatus status={props.profile.status || "hello"} />
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
             </div>
-
             <div className={s.profileDetails}>
                 <h2>{props.profile.fullName}</h2>
                 <p>{props.profile.aboutMe || "Информация о пользователе не указана."}</p>

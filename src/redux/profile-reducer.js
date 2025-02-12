@@ -1,8 +1,9 @@
-import {usersAPI} from "../api/api";
+import {profileAPI, usersAPI} from "../api/api";
 
 const addPost = 'addPost';
 const updateNewPostText = 'updateNewPostText';
 const SetUserProfile = 'setUserProfile';
+const SetStatus='setStatus';
 let initialState = {
     posts: [
         {id: 1, message: 'Hi,how are you?'},
@@ -11,6 +12,7 @@ let initialState = {
     ],
     newPostText: 'vk.com',
     profile: null,
+    status: "",
 };
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -38,16 +40,38 @@ const profileReducer = (state = initialState, action) => {
             };
 
         }
+        case SetStatus: {
+            return {
+                ...state,
+                status: action.status,
+            };
+
+        }
         default:
             return state;
     }
 };
 export const addPostActionCreator = () => ({type: addPost})
 export const setUserProfile = (profile) => ({type: SetUserProfile, profile})
+export const setStatus = (status) => ({type: SetStatus, status})
 export const getUserProfile = (userId) =>(dispatch)=>{
     usersAPI.getProfile(userId)
         .then(response => {
             dispatch(setUserProfile(response.data));
+        });
+}
+export const getStatus = (userId) =>(dispatch)=>{
+    profileAPI.getStatus(userId)
+        .then(response => {
+            dispatch(setStatus(response.data));
+        });
+}
+export const updateStatus = (status) =>(dispatch)=>{
+    profileAPI.updateStatus(status)
+        .then(response => {
+            if(response.data.resultCode === 0) {
+                dispatch(setStatus(status));
+            }
         });
 }
 export const updatePostTextActionCreator = (text) => (
