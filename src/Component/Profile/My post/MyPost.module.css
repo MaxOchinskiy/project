@@ -1,59 +1,80 @@
-.log {
-    margin: 60px 20px;
-    color: rgba(0, 0, 0, 0.8);
-    font-family: Open Sans, Helvetica Neue, sans-serif;
+body {
+    background-color: #f0f2f5;
+    color: #1c1e21;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.post {
-    height: 120px;
-    margin-bottom: 20px;
-    color: rgba(0, 0, 0, 0.8);
+.log {
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .posts {
-    margin: -20px 10px;
-    color: rgba(0, 0, 0, 0.8);
+    margin-top: 20px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    color: #1c1e21;
+}
+
+.post:last-child {
+    border-bottom: none;
 }
 
 .mypost {
+    display: inline-block;
     cursor: pointer;
     outline: none;
     text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.08);
-    color: rgba(0, 89, 255, 0.7);
-    border: 0;
+    background-color: #1877f2;
+    color: #ffffff;
+    border: none;
     border-radius: 8px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .mypost:hover {
-    background-color: rgba(0, 89, 255, 0.15);
+    background-color: #166fe5;
     transform: translateY(-2px);
+}
+
+.mypost:active {
+    background-color: #155db0;
 }
 
 .text {
     resize: none;
     background-color: white;
-    color: rgba(0, 0, 0, 0.8);
+    color: #1c1e21;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 12px 20px;
-    font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     width: 100%;
-    max-width: 825px;
+    max-width: 800px;
     box-sizing: border-box;
     outline: none;
-    margin-bottom: 20px;
+    margin-top: 15px;
     transition: border-color 0.3s ease;
 }
 
 .text:focus {
-    border-color: rgba(0, 89, 255, 0.7);
+    border-color: #1877f2;
 }
 
 .text::placeholder {
@@ -65,10 +86,10 @@ button:disabled {
     opacity: 0.5;
 }
 
-textarea:focus {
-    outline: none;
-}
-
 textarea {
     box-sizing: border-box;
+}
+
+textarea:focus {
+    outline: none;
 }

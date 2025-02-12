@@ -1,12 +1,11 @@
 import React from "react";
 import s from './Header.module.css';
 import { NavLink } from "react-router-dom";
-
+import Logotip from "../../assets/images/VK Text Logo.png"
 const Header = ({ isAuth, login }) => {
     return (
         <header className={s.header}>
-            <img src='https://www.mgutu-vf.ru/img/vk_1.png' alt="ВКонтакте" className={s.logo} />
-            <div className={s.log}>вконтакте</div>
+            <img src={Logotip} className={s.logo} />
             <div className={s.loginBlock}>
                 {isAuth
                     ? <div className={s.login}>{login}</div>

@@ -1,67 +1,42 @@
-.header{
-    grid-area:h ;
-    background: rgba(255, 255, 255, 0.74);
-    position: relative;
-    top:-9px;
-
-
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 410px;
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
-.header img{
-    width: 24px;
-    height: 24px;
-    margin: 50px 390px;
-}
-.log{
-    margin: -55px -392px;
-    color: rgba(0, 0, 0, 0.8);
-    font-weight: 800;
-    cursor: pointer;
-    font-family: Open Sans, Helvetica Neue, sans-serif;
-    font-size: 20px;
-
-}
-.loginBlock{
-    width: 30px;
-    margin: 20px 1730px;
-}
-.loginBlock a{
-    color: black;
-    outline: none;
-    text-decoration: none;
-}.header {
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     padding: 10px 20px;
-     background-color: #fff;
-     border-bottom: 1px solid #ddd;
- }
 
 .logo {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    width: 136px;
+    height: 24px;
 }
-
-.log {
-    font-size: 24px;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.8);
-}
-
 .loginBlock {
-    font-size: 16px;
+    display: flex;
+    align-items: center;
 }
 
-.loginLink {
-    color: #0066ff;
+.loginBlock a {
+    color: #1877f2;
     text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out;
 }
 
-.loginLink:hover {
-    text-decoration: underline;
+.loginBlock a:hover {
+    background-color: rgba(24, 119, 242, 0.1);
 }
 
 .login {
     color: #333;
+    font-size: 16px;
 }

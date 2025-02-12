@@ -3,7 +3,7 @@
     height: 75px;
     border-radius: 50%;
     cursor: pointer;
-    margin: 10px;
+    margin: auto;
     object-fit: cover; /* Для того, чтобы фото всегда было в рамке */
 }
 

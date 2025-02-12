@@ -1,73 +1,85 @@
+body {
+    background-color: #f0f2f5;
+    color: #1c1e21;
+    font-family: Arial, sans-serif;
+}
+
 .profile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 1px auto;
 }
 
 .dashboard img {
-    width: 911px;
-    height: 277px;
+    width: 820px;
+    height: 270px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    margin-bottom: -5px;
 }
 
 .avatar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    position: relative;
+    margin-top: -80px;
 }
 
 .profilePhoto {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    border: 4px solid #ffffff;
     object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .profileDetails {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 15px 0;
 }
 
 .profileDetails h2 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
-    margin: 10px 0;
+    color: #1c1e21;
 }
 
 .profileDetails p {
     font-size: 1.1em;
-    color: #555;
+    color: #606770;
 }
 
 .buttons {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 400px;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .red, .eshe {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 1em;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    background-color: #5181b8;
+    background: #1877f2;
     color: white;
-    transition: background-color 0.3s;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .red:hover, .eshe:hover {
-    background-color: #406e99;
+    background: #166fe5;
 }
 
 .red:active, .eshe:active {
-    background-color: #365b82;
+    background: #155db0;
 }
+
