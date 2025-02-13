@@ -9,7 +9,7 @@ const ToggleIsFetching ='toggleIsFetching'
 const ToggleIsFollowingProgress ='toggleIsFollowingProgress'
 let initialState ={
     users: [],
-    pageSize: 10,
+    pageSize: 20,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true,
