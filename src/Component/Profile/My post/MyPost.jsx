@@ -1,44 +1,53 @@
-import React, { useRef } from "react";
+import React from "react";
+import { Field, Form, Formik } from "formik";
 import s from './MyPost.module.css';
 import Post from "./Post/Post";
 
 const MyPost = (props) => {
-    // Используем useRef вместо createRef для функциональных компонентов
-    const newPostElement = useRef();
-
     const postsElement = props.posts.map(p => (
         <Post message={p.message} key={p.id} />
     ));
 
-    const onAddPost = () => {
-        props.addPost();
-    };
-
-    const onPostChange = () => {
-        const text = newPostElement.current.value;
-        props.updateNewPostText(text);
+    const onAddPost = (values, { resetForm }) => {
+        props.addPost(values.newPostText);
+        resetForm(); // Очистка формы после отправки
     };
 
     return (
         <div className={s.log}>
             <h3>Мои посты</h3>
-            <div className={s.post}>
-                <div>
-                    <textarea
-                        className={s.text}
-                        onChange={onPostChange}
-                        ref={newPostElement}
-                        value={props.newPostText}
-                    />
-                </div>
-                <div>
-                    <button onClick={onAddPost} className={s.mypost}>Добавить пост</button>
-                </div>
-            </div>
+            <AddNewPostForm onSubmit={onAddPost} />
             <div className={s.posts}>
                 {postsElement}
             </div>
         </div>
+    );
+};
+
+const AddNewPostForm = ({ onSubmit }) => {
+    return (
+        <Formik
+            initialValues={{ newPostText: "" }}
+            validate={values => {
+                const errors = {};
+                if (!values.newPostText) {
+                    errors.newPostText = "Пост не может быть пустым";
+                }
+                return errors;
+            }}
+            onSubmit={onSubmit}>
+            {({ errors, touched }) => (
+                <Form>
+                    <div className={s.post}>
+                        <Field className={s.text} name="newPostText" component="textarea" />
+                        {errors.newPostText && touched.newPostText && (
+                            <div className={s.error}>{errors.newPostText}</div>
+                        )}
+                    </div>
+                    <button className={s.mypost} type="submit">Добавить пост</button>
+                </Form>
+            )}
+        </Formik>
     );
 };
 

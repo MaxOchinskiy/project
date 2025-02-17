@@ -1,16 +1,15 @@
 import {profileAPI, usersAPI} from "../api/api";
 
 const addPost = 'addPost';
-const updateNewPostText = 'updateNewPostText';
 const SetUserProfile = 'setUserProfile';
 const SetStatus='setStatus';
+
 let initialState = {
     posts: [
         {id: 1, message: 'Hi,how are you?'},
         {id: 2, message: 'It`s my post!'},
         {id: 3, message: 'Yoooooooo'},
     ],
-    newPostText: 'vk.com',
     profile: null,
     status: "",
 };
@@ -19,18 +18,12 @@ const profileReducer = (state = initialState, action) => {
         case addPost: {
             let newPost = {
                 id: 5,
-                message: state.newPostText,
+                message: action.newPostText,
             };
             return {
                 ...state,
                 posts: [...state.posts, newPost],
                 newPostText: ''
-            };
-        }
-        case updateNewPostText: {
-            return {
-                ...state,
-                newPostText: action.newText
             };
         }
         case SetUserProfile: {
@@ -51,7 +44,7 @@ const profileReducer = (state = initialState, action) => {
             return state;
     }
 };
-export const addPostActionCreator = () => ({type: addPost})
+export const addPostActionCreator = (newPostText) => ({type: addPost,newPostText})
 export const setUserProfile = (profile) => ({type: SetUserProfile, profile})
 export const setStatus = (status) => ({type: SetStatus, status})
 export const getUserProfile = (userId) =>(dispatch)=>{
@@ -74,8 +67,5 @@ export const updateStatus = (status) =>(dispatch)=>{
             }
         });
 }
-export const updatePostTextActionCreator = (text) => (
-    {type: updateNewPostText, newText: text})
-
 
 export default profileReducer;

@@ -2,19 +2,20 @@ import React from "react";
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import loginFormSchema from "../FormValidation/LoginFormSchema";
 import s from './login.module.css'
+
 const Login = () => (
     <div className={s.login}>
-        <h1>Login</h1>
+        <h1>Логин</h1>
         <Formik
             initialValues={{email: "", password: "", rememberMe: false}}
             validate={values => {
                 const errors = {};
                 if (!values.email) {
-                    errors.email = 'Required';
+                    errors.email = 'обязательные поля';
                 } else if (
                     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                 ) {
-                    errors.email = 'Invalid email address';
+                    errors.email = 'Не правильно введен Email';
                 }
                 return errors;
             }}
@@ -36,10 +37,10 @@ const Login = () => (
 
                     <div>
                         <Field type={'checkbox'} name={'rememberMe'}/>
-                        <label htmlFor={'rememberMe'}> remember me </label>
+                        <label htmlFor={'rememberMe'}> запомпить </label>
                     </div>
 
-                    <button type={'submit'}>Log in</button>
+                    <button type={'submit'}>Войти</button>
                 </Form>
             )}
         </Formik>
