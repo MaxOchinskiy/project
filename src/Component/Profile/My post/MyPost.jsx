@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 
 const MyPost = (props) => {
     const postsElement = props.posts.map(p => (
-        <Post message={p.message} key={p.id} />
+        <Post message={p.message} key={p.id}  />
     ));
 
     const onAddPost = (values, { resetForm }) => {
@@ -36,17 +36,18 @@ const AddNewPostForm = ({ onSubmit }) => {
                 return errors;
             }}
             onSubmit={onSubmit}>
-            {({ errors, touched }) => (
+            {({ errors, touched, values, dirty }) => (
                 <Form>
                     <div className={s.post}>
-                        <Field className={s.text} name="newPostText" component="textarea" />
-                        {errors.newPostText && touched.newPostText && (
+                        <Field className={s.text} name="newPostText" component="textarea" placeholder="Что у вас нового?" />
+                        {errors.newPostText && touched.newPostText && dirty && (
                             <div className={s.error}>{errors.newPostText}</div>
                         )}
                     </div>
-                    <button className={s.mypost} type="submit">Добавить пост</button>
+                    <button className={s.mypost} type="submit">Опубликовать</button>
                 </Form>
             )}
+
         </Formik>
     );
 };
