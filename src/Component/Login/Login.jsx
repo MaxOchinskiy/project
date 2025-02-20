@@ -1,50 +1,77 @@
-import React from "react";
-import {Formik, Form, Field, ErrorMessage} from "formik";
-import loginFormSchema from "../FormValidation/LoginFormSchema";
-import s from './login.module.css'
+import React from 'react';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
+import * as Yup from 'yup';
+import {connect} from "react-redux";
+import {Navigate} from 'react-router-dom';
+import {login} from "../../redux/auth-reducer";
 
-const Login = () => (
-    <div className={s.login}>
-        <h1>Логин</h1>
-        <Formik
-            initialValues={{email: "", password: "", rememberMe: false}}
-            validate={values => {
-                const errors = {};
-                if (!values.email) {
-                    errors.email = 'обязательные поля';
-                } else if (
-                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                ) {
-                    errors.email = 'Не правильно введен Email';
-                }
-                return errors;
-            }}
-            onSubmit={(values) => {
-                console.log(values)
-            }}
-            validationSchema={loginFormSchema}>
-            {() => (
-                <Form>
-                    <div>
-                        <Field type={'text'} name={'email'} placeholder={'e-mail'}/>
-                    </div>
-                    <ErrorMessage name="email" component="div"/>
 
-                    <div>
-                        <Field type={'password'} name={'password'} placeholder={'password'}/>
-                    </div>
-                    <ErrorMessage name="password" component="div"/>
+const validateLoginForm = values => {
+    const errors = {};
+    if (!values.email) {
+        errors.email = 'Введите email';
+    } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+    ) {
+        errors.email = 'Invalid email address';
+    }
+    return errors;
+};
 
-                    <div>
-                        <Field type={'checkbox'} name={'rememberMe'}/>
-                        <label htmlFor={'rememberMe'}> запомпить </label>
-                    </div>
+const validationSchemaLoginForm = Yup.object().shape({
 
-                    <button type={'submit'}>Войти</button>
-                </Form>
-            )}
-        </Formik>
-    </div>
-);
+    password: Yup.string()
+        .min(2, "Must be longer than 2 characters")
+        .max(20, "Must be shorter than 10 characters")
+        .required("Введите пароль")
+});
 
-export default Login
+const Login = (props) => {
+
+    if (props.isAuth) return <Navigate to='/profile'/>
+
+    return (
+        <div >
+            <h1>Log in</h1>
+            <Formik
+                initialValues={{email: '', password: '', rememberMe: false, messages: null}}
+                validate={validateLoginForm}
+                validationSchema={validationSchemaLoginForm}
+
+                onSubmit={(values) => {
+                    props.login(values.email, values.password, values.rememberMe);
+                }}
+            >
+                {() => (
+                    <Form>
+                        <div>
+                            <Field type='email' name='email' placeholder='e-mail'/>
+                            <ErrorMessage name='email' component='p'/>
+                        </div>
+                        <div>
+                            <Field type='password' name='password' placeholder='password'/>
+                            <ErrorMessage name='password' component='p'/>
+                        </div>
+                        <div>
+                            <Field type='checkbox' name='rememberMe'/>
+                            <label htmlFor='rememberMe'>remember me</label>
+                        </div>
+                        <button type='submit'>Войти</button>
+                        <p>{props.messageError}</p>
+                    </Form>
+                )}
+            </Formik>
+        </div>
+    );
+};
+
+
+let mapStateToProps = (state) => {
+    return {
+        messageError: state.auth.messageError,
+        isAuth: state.auth.isAuth
+    }
+}
+
+
+export default connect(mapStateToProps, {login})(Login);

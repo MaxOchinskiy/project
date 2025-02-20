@@ -2,10 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 410px;
-    background: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 8px 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
@@ -14,29 +14,59 @@
 }
 
 .logo {
-    width: 136px;
-    height: 24px;
+    height: 32px; /* Увеличил высоту логотипа */
 }
+
+.searchBar {
+    flex: 1;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.searchInput {
+    width: 320px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.searchInput:focus {
+    border-color: #1877f2;
+    box-shadow: 0 0 5px rgba(24, 119, 242, 0.3);
+}
+
 .loginBlock {
     display: flex;
     align-items: center;
 }
 
-.loginBlock a {
+.loginBlock a,
+.login {
     color: #1877f2;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
     transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
 
-.loginBlock a:hover {
+.loginBlock a:hover,
+.login:hover {
     background-color: rgba(24, 119, 242, 0.1);
 }
 
 .login {
     color: #333;
-    font-size: 16px;
+    font-size: 14px;
+
 }
+
+
