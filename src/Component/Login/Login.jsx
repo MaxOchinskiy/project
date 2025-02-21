@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import {connect} from "react-redux";
 import {Navigate} from 'react-router-dom';
 import {login} from "../../redux/auth-reducer";
-
+import s from "./login.module.css"
 
 const validateLoginForm = values => {
     const errors = {};
@@ -13,7 +13,7 @@ const validateLoginForm = values => {
     } else if (
         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
     ) {
-        errors.email = 'Invalid email address';
+        errors.email = 'Не правильный email';
     }
     return errors;
 };
@@ -21,8 +21,8 @@ const validateLoginForm = values => {
 const validationSchemaLoginForm = Yup.object().shape({
 
     password: Yup.string()
-        .min(2, "Must be longer than 2 characters")
-        .max(20, "Must be shorter than 10 characters")
+        .min(2, "Минимальное колличество символов 2")
+        .max(20, "Максимальное колличество символов 20")
         .required("Введите пароль")
 });
 
@@ -31,8 +31,8 @@ const Login = (props) => {
     if (props.isAuth) return <Navigate to='/profile'/>
 
     return (
-        <div >
-            <h1>Log in</h1>
+        <div className={s.login}>
+            <h1>Вход</h1>
             <Formik
                 initialValues={{email: '', password: '', rememberMe: false, messages: null}}
                 validate={validateLoginForm}
@@ -54,7 +54,7 @@ const Login = (props) => {
                         </div>
                         <div>
                             <Field type='checkbox' name='rememberMe'/>
-                            <label htmlFor='rememberMe'>remember me</label>
+                            <label htmlFor='rememberMe'>Запомнить меня</label>
                         </div>
                         <button type='submit'>Войти</button>
                         <p>{props.messageError}</p>

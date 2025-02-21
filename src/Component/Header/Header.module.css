@@ -14,17 +14,19 @@
 }
 
 .logo {
-    height: 32px; /* Увеличил высоту логотипа */
+    height: 22px;
+    margin: 0 400px/* Увеличил высоту логотипа */
 }
 
 .searchBar {
-    flex: 1;
-    margin: 0 20px;
-    display: flex;
-    justify-content: center;
+
+
+
 }
 
 .searchInput {
+    position: relative;
+    left: -250px;
     width: 320px;
     padding: 8px 12px;
     font-size: 14px;
@@ -64,6 +66,8 @@
 }
 
 .login {
+    position: relative;
+    left: -100%;
     color: #333;
     font-size: 14px;
 
