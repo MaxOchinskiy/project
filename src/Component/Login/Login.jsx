@@ -32,7 +32,7 @@ const Login = (props) => {
 
     return (
         <div className={s.login}>
-            <h1>Вход</h1>
+            <h1>Вход ВКонтакте</h1>
             <Formik
                 initialValues={{email: '', password: '', rememberMe: false, messages: null}}
                 validate={validateLoginForm}
