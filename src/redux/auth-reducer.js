@@ -1,4 +1,5 @@
 import { authAPI } from '../api/api';
+import {initializedSuccess} from "./app-reducer";
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 const SET_ERROR = 'SET_ERROR';
 
@@ -40,16 +41,16 @@ export const setAuthUserData = (id, email, login, isAuth) => ({
     payload: { id, email, login, isAuth },
 });
 
-export const getAuthUserData = () => {
-    return (dispatch) => {
-        authAPI.me().then((response) => {
+export const getAuthUserData = () => (dispatch)=>{
+    return authAPI.me()
+            .then((response) => {
             if (response.data.resultCode === 0) {
                 let { id, email, login } = response.data.data;
                 dispatch(setAuthUserData(id, email, login, true));
             }
         });
-    };
-};
+
+}
 
 export const login = (email, password, rememberMe) => {
     return (dispatch) => {
