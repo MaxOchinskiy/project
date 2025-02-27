@@ -7,7 +7,7 @@ import News from "./Component/News/News";
 import Settings from "./Component/Settings/Settings";
 import DialogsContainer from "./Component/Dialogs/Message/DialogsContainer";
 import UsersContainer from "./Component/Users/usersContainer";
-import ProfileContainer, {withRouter} from "./Component/Profile/ProfileContainer";
+import ProfileContainer from "./Component/Profile/ProfileContainer";
 import HeaderContainer from "./Component/Header/HeaderContainer";
 import LoginPage from "./Component/Login/Login";
 import {connect} from "react-redux";
@@ -60,5 +60,5 @@ const mapStateToProps = (state) => ({
 
 
 export default compose(
-    withRouter,
+
     connect (mapStateToProps,{initializeApp}))(App);
