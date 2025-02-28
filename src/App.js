@@ -15,15 +15,13 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./Component/common/Preloader/Preloader";
 
-
-
 class App extends Component {
     componentDidMount() {
         this.props.initializeApp();
     }
     render() {
         if (!this.props.initialized) {
-        return <Preloader/>
+            return <Preloader/>
         }
         return (<BrowserRouter>
                 <div className='app-wrapper'>
@@ -49,16 +47,11 @@ class App extends Component {
                     </div>
                 </div>
             </BrowserRouter>
-
-
         )
     }
 }
+
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 })
-
-
-export default compose(
-
-    connect (mapStateToProps,{initializeApp}))(App);
+export default compose(connect(mapStateToProps, {initializeApp}))(App);

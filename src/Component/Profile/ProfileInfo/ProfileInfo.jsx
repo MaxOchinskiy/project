@@ -4,6 +4,7 @@ import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import defaultProfilePhoto from '../../../assets/images/users.jpg';
 import dashboardPhoto from '../../../assets/images/maxresdefault.jpg'
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -26,7 +27,7 @@ const ProfileInfo = (props) => {
                     alt="Avatar"
                     className={s.profilePhoto}
                 />
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
             </div>
             <div className={s.profileDetails}>
                 <h2>{props.profile.fullName}</h2>
