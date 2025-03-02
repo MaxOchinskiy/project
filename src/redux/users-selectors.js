@@ -1,9 +1,9 @@
 import {createSelector} from "reselect";
 
-const getUsersSelector = (state) => {
+const getusersSelektor = (state) => {
     return state.usersPage.users
 }
-export const getusers = createSelector(getUsersSelector,
+export const getusers = createSelector(getusersSelektor,
     (users)=>{
     return  users.filter(u=>true)
 })

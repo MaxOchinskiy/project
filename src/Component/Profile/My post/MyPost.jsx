@@ -3,8 +3,10 @@ import { Field, Form, Formik } from "formik";
 import s from './MyPost.module.css';
 import Post from "./Post/Post";
 
-const MyPost = (props) => {
-    const postsElement = props.posts.map(p => (
+const MyPost = React.memo(props => {
+    const postsElement = [...props.posts]
+        .reverse()
+        .map(p => (
         <Post message={p.message} key={p.id}  />
     ));
 
@@ -22,7 +24,7 @@ const MyPost = (props) => {
             </div>
         </div>
     );
-};
+});
 
 const AddNewPostForm = ({ onSubmit }) => {
     return (

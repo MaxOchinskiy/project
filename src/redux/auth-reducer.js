@@ -1,5 +1,4 @@
 import { authAPI } from '../api/api';
-import {initializedSuccess} from "./app-reducer";
 const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA';
 const SET_ERROR = 'SET_ERROR';
 
