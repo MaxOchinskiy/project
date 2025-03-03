@@ -1,9 +1,9 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-import { connect } from "react-redux";
-import { Navigate } from 'react-router-dom';
-import { login } from "../../redux/auth-reducer";
+import {connect} from "react-redux";
+import {Navigate} from 'react-router-dom';
+import {login} from "../../redux/auth-reducer";
 import s from "./login.module.css";
 
 const validationSchemaLoginForm = Yup.object().shape({
@@ -18,9 +18,8 @@ const validationSchemaLoginForm = Yup.object().shape({
 
 export function Login(props) {
     if (props.isAuth) {
-        return <Navigate to="/profile" />;
+        return <Navigate to="/profile"/>;
     }
-
     return (
         <div className={s.login}>
             <h1>Войти ВКонтакте</h1>
@@ -31,28 +30,28 @@ export function Login(props) {
                     rememberMe: false,
                 }}
                 validationSchema={validationSchemaLoginForm}
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(values, {setSubmitting}) => {
                     props.login(values.email, values.password, values.rememberMe);
                     setSubmitting(false);
                 }}
             >
-                {({ isSubmitting }) => (
+                {({isSubmitting}) => (
                     <Form>
                         <div>
                             <label htmlFor="email">Почта</label>
-                            <Field id="email" name="email" placeholder="Email" />
-                            <ErrorMessage name="email" component="div" className={s.errors} />
+                            <Field id="email" name="email" placeholder="Email"/>
+                            <ErrorMessage name="email" component="div"/>
                         </div>
 
                         <div>
                             <label htmlFor="password">Пароль</label>
-                            <Field id="password" name="password" placeholder="Password" type="password" />
-                            <ErrorMessage name="password" component="div" className={s.errors} />
+                            <Field id="password" name="password" placeholder="Password" type="password"/>
+                            <ErrorMessage name="password" component="div"/>
                         </div>
 
                         <div>
                             <label>
-                                <Field id="rememberMe" name="rememberMe" type="checkbox" />
+                                <Field id="rememberMe" name="rememberMe" type="checkbox"/>
                                 Запомнить меня
                             </label>
                         </div>
@@ -61,7 +60,7 @@ export function Login(props) {
                     </Form>
                 )}
             </Formik>
-            {props.errorAuth && <div className={s.errors}>{props.errorAuth}</div>}
+            {props.errorAuth && <div>{props.errorAuth}</div>}
         </div>
     );
 }
@@ -70,8 +69,7 @@ const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     errorAuth: state.auth.errorAuth,
 });
-
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, {login})(Login);
 
 
 
