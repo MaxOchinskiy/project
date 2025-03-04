@@ -10,10 +10,11 @@ import UsersContainer from "./Component/Users/usersContainer";
 import ProfileContainer from "./Component/Profile/ProfileContainer";
 import HeaderContainer from "./Component/Header/HeaderContainer";
 import LoginPage from "./Component/Login/Login";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./Component/common/Preloader/Preloader";
+import store from "./redux/redux-store";
 
 class App extends Component {
     componentDidMount() {
@@ -23,7 +24,7 @@ class App extends Component {
         if (!this.props.initialized) {
             return <Preloader/>
         }
-        return (<BrowserRouter>
+        return (
                 <div className='app-wrapper'>
                     <HeaderContainer/>
                     <Nav/>
@@ -46,7 +47,7 @@ class App extends Component {
                         </Routes>
                     </div>
                 </div>
-            </BrowserRouter>
+
         )
     }
 }
@@ -54,4 +55,16 @@ class App extends Component {
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 })
-export default compose(connect(mapStateToProps, {initializeApp}))(App);
+
+let AppContainer = compose(connect(mapStateToProps, {initializeApp}))(App)
+const SamuraiJSApp =(props) =>{
+    return <BrowserRouter>
+        <React.StrictMode>
+            <Provider store={store}>
+                <AppContainer/>
+            </Provider>
+        </React.StrictMode>
+    </BrowserRouter>
+}
+export default SamuraiJSApp
+/*export default compose(connect(mapStateToProps, {initializeApp}))(App);*/
