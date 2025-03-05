@@ -1,20 +1,14 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { getStatus, getUserProfile, updateStatus } from "../../redux/profile-reducer";
+import {getStatus, getUserProfile, savePhoto, updateStatus} from "../../redux/profile-reducer";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { compose } from "redux";
 import { Navigate } from "react-router-dom";
 
 class ProfileContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isShowMyProfile: true
-        };
-    }
 
-    componentDidMount() {
+    refreshProfile() {
         let userIdFromPath = +this.props.router.params.userId;
         let authorisedUserId = this.props.authorisedUserId;
 
@@ -26,7 +20,25 @@ class ProfileContainer extends React.Component {
             this.props.getUserProfile(userIdFromPath);
             this.props.getStatus(userIdFromPath);
         }
+
     }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isShowMyProfile: true
+        };
+    }
+
+    componentDidMount() {
+        this.refreshProfile()
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.router.params.userId !== prevProps.router.params.userId)
+
+        this.refreshProfile()
+    }
+
 
     static getDerivedStateFromProps(nextProps, prevState) {
         let userIdFromPath = +nextProps.router.params.userId;
@@ -47,10 +59,12 @@ class ProfileContainer extends React.Component {
         return (
             <Profile
                 {...this.props}
+                isOwner={!this.props.router.params.userId}
                 profile={this.props.profile}
                 status={this.props.status}
                 updateStatus={this.props.updateStatus}
-                authorisedUserId={this.props.authorisedUserId} // Передаем в ProfileInfo
+                authorisedUserId={this.props.authorisedUserId}
+                savePhoto={this.props.savePhoto}
             />
         );
     }
@@ -74,7 +88,7 @@ let mapStateToProps = (state) => ({
 
 const ProfileContainerCompose = compose(
     withRouter,
-    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus })
+    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus,savePhoto })
 )(ProfileContainer);
 
 export default ProfileContainerCompose;

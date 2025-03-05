@@ -57,7 +57,7 @@ const mapStateToProps = (state) => ({
 })
 
 let AppContainer = compose(connect(mapStateToProps, {initializeApp}))(App)
-const SamuraiJSApp =(props) =>{
+const SamuraiJSApp =() =>{
     return <BrowserRouter>
         <React.StrictMode>
             <Provider store={store}>
@@ -67,4 +67,4 @@ const SamuraiJSApp =(props) =>{
     </BrowserRouter>
 }
 export default SamuraiJSApp
-/*export default compose(connect(mapStateToProps, {initializeApp}))(App);*/
+
