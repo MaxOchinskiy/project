@@ -82,4 +82,7 @@ body {
 .red:active, .eshe:active {
     background: #155db0;
 }
-
+.contact{
+    display: flex;
+    padding-left: 10px;
+}
